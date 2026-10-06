@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070707">
+<title>Kırmızı Tilki Apps</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --bg:#070707;
+    --card:#111114;
+    --red:#e50914;
+    --red2:#ff2633;
+    --text:#fff;
+    --muted:#999;
+    --border:rgba(255,255,255,.08);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(229,9,20,.22),transparent 35%),
+        var(--bg);
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:1px solid var(--border);
+    background:rgba(7,7,7,.78);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+}
+
+.nav{
+    width:100%;
+    max-width:1200px;
+    height:72px;
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    border-radius:14px;
+
+    display:grid;
+    place-items:center;
+
+    background:linear-gradient(145deg,#ff2633,#850006);
+    box-shadow:0 8px 30px rgba(229,9,20,.3);
+
+    font-size:23px;
+}
+
+.nav-links{
+    display:flex;
+    gap:7px;
+}
+
+.nav-links button{
+    border:0;
+    color:#aaa;
+    background:transparent;
+    padding:10px 14px;
+    border-radius:12px;
+    transition:.2s;
+}
+
+.nav-links button:hover,
+.nav-links button.active{
+    color:white;
+    background:rgba(229,9,20,.13);
+}
+
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:55px 20px 25px;
+}
+
+.hero-box{
+    position:relative;
+    overflow:hidden;
+
+    padding:55px 35px;
+    border:1px solid rgba(229,9,20,.22);
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(229,9,20,.28),
+            transparent 35%
+        ),
+        linear-gradient(135deg,#111,#090909);
+}
+
+.hero-box:after{
+    content:"";
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    right:-100px;
+    bottom:-120px;
+
+    border-radius:50%;
+    background:rgba(229,9,20,.13);
+    filter:blur(70px);
+}
+
+.hero h1{
+    position:relative;
+    z-index:2;
+
+    font-size:clamp(40px,7vw,72px);
+    line-height:1;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:var(--red2);
+}
+
+.hero p{
+    position:relative;
+    z-index:2;
+
+    max-width:620px;
+    margin-top:20px;
+
+    color:#aaa;
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* YOUTUBE CARD */
+
+.youtube-card{
+    position:relative;
+    z-index:5;
+
+    max-width:650px;
+    margin-top:30px;
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    padding:16px;
+
+    border:1px solid rgba(229,9,20,.28);
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229,9,20,.18),
+            rgba(255,255,255,.04)
+        );
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.youtube-icon{
+    width:55px;
+    height:55px;
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:16px;
+    background:#ff0000;
+
+    font-size:25px;
+    box-shadow:0 8px 25px rgba(255,0,0,.25);
+}
+
+.youtube-info{
+    flex:1;
+}
+
+.youtube-info strong{
+    display:block;
+    font-size:16px;
+}
+
+.youtube-info span{
+    display:block;
+    margin-top:5px;
+    color:#999;
+    font-size:13px;
+}
+
+.youtube-button{
+    border:0;
+    border-radius:13px;
+
+    padding:11px 16px;
+
+    background:#ff0000;
+    color:white;
+
+    font-weight:bold;
+    transition:.2s;
+}
+
+.youtube-button:hover{
+    transform:translateY(-2px);
+    background:#ff2633;
+}
+
+/* SEARCH */
+
+.search{
+    position:relative;
+    z-index:5;
+
+    max-width:600px;
+    margin-top:28px;
+}
+
+.search input{
+    width:100%;
+    height:58px;
+
+    padding:0 55px 0 20px;
+
+    border:1px solid var(--border);
+    outline:none;
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+    color:white;
+
+    font-size:16px;
+
+    backdrop-filter:blur(15px);
+    transition:.2s;
+}
+
+.search input::placeholder{
+    color:#777;
+}
+
+.search input:focus{
+    border-color:rgba(229,9,20,.6);
+    box-shadow:0 0 0 4px rgba(229,9,20,.08);
+}
+
+.search-icon{
+    position:absolute;
+    right:19px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#aaa;
+    font-size:23px;
+}
+
+/* CONTENT */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 80px;
+}
+
+.section{
+    margin-top:45px;
+}
+
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.section-head h2{
+    font-size:25px;
+}
+
+.section-head span{
+    color:#777;
+    font-size:13px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:flex;
+    gap:10px;
+
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category{
+    white-space:nowrap;
+
+    border:1px solid var(--border);
+    border-radius:14px;
+
+    padding:12px 17px;
+
+    background:var(--card);
+    color:#bbb;
+
+    transition:.2s;
+}
+
+.category:hover,
+.category.active{
+    border-color:var(--red);
+    background:var(--red);
+    color:white;
+    box-shadow:0 8px 25px rgba(229,9,20,.2);
+}
+
+/* APP CARD */
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.app{
+    position:relative;
+    overflow:hidden;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    background:linear-gradient(145deg,#141416,#0d0d0f);
+
+    transition:.25s;
+}
+
+.app:hover{
+    transform:translateY(-4px);
+    border-color:rgba(229,9,20,.45);
+    box-shadow:0 20px 45px rgba(0,0,0,.3);
+}
+
+.app-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.app-icon{
+    width:68px;
+    height:68px;
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:19px;
+
+    background:linear-gradient(145deg,#ff2735,#8b0000);
+
+    font-size:31px;
+    box-shadow:0 10px 25px rgba(229,9,20,.18);
+}
+
+.app h3{
+    font-size:18px;
+}
+
+.app small{
+    display:block;
+    margin-top:5px;
+    color:#888;
+}
+
+.app p{
+    margin-top:17px;
+
+    color:#999;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.app-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-top:20px;
+}
+
+.version{
+    color:#777;
+    font-size:12px;
+}
+
+.download{
+    border:0;
+    border-radius:12px;
+
+    padding:10px 16px;
+
+    background:var(--red);
+    color:white;
+
+    font-weight:bold;
+    transition:.2s;
+}
+
+.download:hover{
+    background:var(--red2);
+    transform:translateY(-1px);
+}
+
+/* EMPTY */
+
+.empty{
+    display:none;
+
+    padding:60px 20px;
+
+    color:#777;
+    text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 20px;
+
+    border-top:1px solid var(--border);
+
+    color:#666;
+    text-align:center;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+footer span{
+    display:block;
+    margin-top:7px;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .apps{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-links button:nth-child(n+3){
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav{
+        height:64px;
+        padding:0 14px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .logo-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .hero{
+        padding:25px 14px 20px;
+    }
+
+    .hero-box{
+        padding:35px 20px;
+        border-radius:24px;
+    }
+
+    .hero h1{
+        font-size:42px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .youtube-card{
+        align-items:flex-start;
+        flex-wrap:wrap;
+    }
+
+    .youtube-info{
+        min-width:calc(100% - 75px);
+    }
+
+    .youtube-button{
+        width:100%;
+    }
+
+    .container{
+        padding:0 14px 60px;
+    }
+
+    .apps{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🦊
+            </div>
+
+            <div>
+                Kırmızı Tilki Apps
+            </div>
+
+        </div>
+
+        <div class="nav-links">
+
+            <button
+                class="active"
+                onclick="scrollToId('home')">
+                Ana Sayfa
+            </button>
+
+            <button
+                onclick="scrollToId('apps')">
+                Uygulamalar
+            </button>
+
+            <button
+                onclick="scrollToId('new')">
+                Yeni
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-box">
+
+        <h1>
+            Uygulamalarını<br>
+            <span>keşfet.</span>
+        </h1>
+
+        <p>
+            Kırmızı Tilki Apps, Kırmızı Tilki tarafından
+            geliştirilen uygulamaları ve oyunları
+            keşfedebileceğin yeni nesil uygulama mağazası.
+        </p>
+
+
+        <div class="youtube-card">
+
+            <div class="youtube-icon">
+                ▶
+            </div>
+
+            <div class="youtube-info">
+
+                <strong>
+                    KırmızıTilkiMC
+                </strong>
+
+                <span>
+                    YouTube kanalımızı keşfet • Minecraft ve daha fazlası
+                </span>
+
+            </div>
+
+            <button
+                class="youtube-button"
+                onclick="openYouTube()">
+
+                YouTube'a Git →
+
+            </button>
+
+        </div>
+
+
+        <div class="search">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Uygulama ara..."
+                oninput="searchApps()"
+            >
+
+            <div class="search-icon">
+                ⌕
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="container">
+
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2>
+            Kategoriler
+        </h2>
+
+    </div>
+
+
+    <div class="categories">
+
+        <button
+            class="category active"
+            onclick="filterCategory('all',this)">
+            Tümü
+        </button>
+
+        <button
+            class="category"
+            onclick="filterCategory('music',this)">
+            🎵 Ses & Müzik
+        </button>
+
+    </div>
+
+</section>
+
+
+<section
+    class="section"
+    id="apps">
+
+    <div class="section-head">
+
+        <h2>
+            Uygulamalar
+        </h2>
+
+        <span>
+            1 uygulama
+        </span>
+
+    </div>
+
+
+    <div
+        class="apps"
+        id="appList">
+
+
+        <article
+            class="app"
+            data-category="music"
+            data-name="Tilki Videodan Sese">
+
+            <div class="app-top">
+
+                <div class="app-icon">
+                    🎵
+                </div>
+
+                <div>
+
+                    <h3>
+                        Tilki Videodan Sese
+                    </h3>
+
+                    <small>
+                        Ses & Müzik
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Videolarını hızlı ve kolay bir şekilde
+                ses dosyasına dönüştür.
+            </p>
+
+
+            <div class="app-bottom">
+
+                <span class="version">
+                    Hazır
+                </span>
+
+                <button
+                    class="download"
+                    onclick="openApp()">
+
+                    İncele
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <div
+        class="empty"
+        id="empty">
+
+        Aradığın uygulama bulunamadı. 🦊
+
+    </div>
+
+</section>
+
+
+<section
+    class="section"
+    id="new">
+
+    <div class="section-head">
+
+        <h2>
+            Yeni Eklenenler
+        </h2>
+
+    </div>
+
+
+    <div class="apps">
+
+        <article class="app">
+
+            <div class="app-top">
+
+                <div class="app-icon">
+                    🦊
+                </div>
+
+                <div>
+
+                    <h3>
+                        Yeni uygulamalar
+                    </h3>
+
+                    <small>
+                        Yakında
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Yeni uygulamalar hazırlandıkça
+                burada yayınlanacak.
+            </p>
+
+
+            <div class="app-bottom">
+
+                <span class="version">
+                    Yakında
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+    <strong>
+        🦊 Kırmızı Tilki Apps
+    </strong>
+
+    <span>
+        © 2026 Kırmızı Tilki • Tüm hakları saklıdır.
+    </span>
+
+</footer>
+
+
+<script>
+
+function scrollToId(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+function openYouTube(){
+
+    window.open(
+        "https://youtube.com/@kirmizitilkimc?si=M4CRKByzO4UqNSXv",
+        "_blank"
+    );
+
+}
+
+
+function searchApps(){
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const apps =
+        document
+        .querySelectorAll("#appList .app");
+
+    let found = 0;
+
+    apps.forEach(app => {
+
+        const name =
+            app.dataset.name.toLowerCase();
+
+        if(name.includes(input)){
+
+            app.style.display="";
+            found++;
+
+        }else{
+
+            app.style.display="none";
+
+        }
+
+    });
+
+    document
+        .getElementById("empty")
+        .style.display =
+        found === 0
+        ? "block"
+        : "none";
+
+}
+
+
+function filterCategory(category,button){
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+    button.classList.add("active");
+
+
+    const apps =
+        document
+        .querySelectorAll("#appList .app");
+
+
+    apps.forEach(app => {
+
+        if(
+            category === "all" ||
+            app.dataset.category === category
+        ){
+
+            app.style.display="";
+
+        }else{
+
+            app.style.display="none";
+
+        }
+
+    });
+
+
+    document
+        .getElementById("empty")
+        .style.display="none";
+
+}
+
+
+function openApp(){
+
+    alert(
+        "Tilki Videodan Sese\n\n" +
+        "Uygulama detay sayfasını bir sonraki aşamada ekleyeceğiz. 🦊"
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
